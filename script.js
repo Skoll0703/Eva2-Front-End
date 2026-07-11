@@ -31,6 +31,14 @@ function validarDatos(datos) {
         return false;
     }
 
+    const estadoNormalizado = estado.trim().toLowerCase();
+
+    if (estadoNormalizado !== "pendiente" && estadoNormalizado !== "atendida") {
+        mostrarMensaje("Por favor, ingrese un estado valido (Pendiente/Atendida).");
+        return false;
+    }
+
+    datos.estado = estadoNormalizado === "pendiente" ? "Pendiente" : "Atendida";
     return true;
 }
 
