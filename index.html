@@ -1,33 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-pink-100 font-serif text-dark-900">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de atencion veterinaria</title>
+    <title class="font-sans">Registro de atencion veterinaria</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
+<body class="min-h-screen bg-pink-100 p-6 font-sans text-gray-800">
+    <div class="mx-auto flex max-w-6xl flex-col gap-6 lg:flex-row">
+        <section class="flex-1 rounded-2xl bg-white p-6 shadow-lg">
+            <h1 class="mb-4 text-2xl font-bold">Registro de atencion veterinaria</h1>
 
-    <h1>Registro de atencion veterinaria</h1>
+            <div class="mb-4 flex flex-col gap-3">
+                <input class="rounded-full border border-gray-300 px-4 py-2" type="text" id="nombreMascota" placeholder="Nombre de la mascota">
+                <input class="rounded-full border border-gray-300 px-4 py-2" type="text" id="especieMascota" placeholder="Especie mascota">
+                <input class="rounded-full border border-gray-300 px-4 py-2" type="text" id="nombrePropietario" placeholder="Nombre del propietario">
+                <input class="rounded-full border border-gray-300 px-4 py-2" type="number" id="edadMascota" placeholder="Edad" min="0">
+                <input class="rounded-full border border-gray-300 px-4 py-2" type="text" id="estadoMascota" placeholder="Estado de atencion">
+            </div>
 
-    <input type="text" id="nombreMascota" placeholder="Nombre de la mascota">
-    <input type="text" id="especieMascota" placeholder="Especie mascota">
-    <input type="text" id="nombrePropietario" placeholder="Nombre del propietario">
-    <input type="number" id="edadMascota" placeholder="Edad" min="0">
-    <input type="text" id="estadoMascota" placeholder="Estado de atencion">
+            <button class="rounded-full bg-blue-500 px-4 py-2 font-semibold text-white transition hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500" id="btnAgregar">Agregar mascota</button>
 
-    <button id="btnAgregar">Agregar mascota</button>
+            <p id="mensaje" class="mt-3 text-sm text-gray-600"></p>
 
-    <p id="mensaje"></p>
+            <h2 class="mt-6 text-xl font-semibold">Mascotas Registradas</h2>
+            <div class="mt-3 flex flex-wrap gap-2">
+                <button id="filtroTodos" class="transition hover:-translate-y-1 hover:scale-105 hover:bg-gray-500 rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700">Todas</button>
+                <button id="filtroPendientes" class="transition hover:-translate-y-1 hover:scale-105 hover:bg-yellow-500 rounded-full bg-yellow-200 px-3 py-1 text-sm text-gray-700">Pendientes</button>
+                <button id="filtroAtendidas" class="transition hover:-translate-y-1 hover:scale-105 hover:bg-green-500 rounded-full bg-green-200 px-3 py-1 text-sm text-gray-700">Atendidas</button>
+            </div>
+            <ul class="mt-3 rounded-2xl bg-blue-300 p-4 list-disc space-y-2 pl-5" id="listaMascotas"></ul>
+        </section>
 
-    <h2>Mascotas Registradas</h2>
-    <div id="resumenMascotas">
-        <p id="mascotasRegistradas">Mascotas Registradas: 0</p>
-        <p id="mascotasPendientes">Mascotas Pendientes: 0</p>
-        <p id="mascotasAtendidas">Mascotas Atendidas: 0</p>
+        <aside class="w-full rounded-2xl bg-indigo-600 p-6 text-white shadow-lg lg:w-80">
+            <h2 class="text-xl font-semibold">Resumen</h2>
+            <div id="resumenMascotas" class="mt-4 space-y-2">
+                <p id="mascotasRegistradas" class="rounded-full bg-white/20 px-3 py-2">Mascotas Registradas: 0</p>
+                <p id="mascotasPendientes" class="rounded-full bg-white/20 px-3 py-2">Mascotas Pendientes: 0</p>
+                <p id="mascotasAtendidas" class="rounded-full bg-white/20 px-3 py-2">Mascotas Atendidas: 0</p>
+            </div>
+        </aside>
     </div>
-    <ul id="listaMascotas"></ul>
 
     <script src="script.js"></script>
-    
 </body>
 </html>
